@@ -1,26 +1,90 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3pT-lM-FCx">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Story Page View Controller-->
+        <scene sceneID="5tm-tb-SeO">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="3pT-lM-FCx" customClass="StoryPageViewController" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QsV-xu-RQ4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-857" y="89"/>
+        </scene>
+        <!--Single Page View Controller-->
+        <scene sceneID="EUJ-m1-yXz">
+            <objects>
+                <viewController storyboardIdentifier="Single-AV-Page" id="idx-MO-gKf" customClass="SinglePageViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="uf3-r0-Edr"/>
+                        <viewControllerLayoutGuide type="bottom" id="aV7-Xi-KbA"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="E49-qw-70d">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Z31-7Y-jGg">
+                                <rect key="frame" x="16" y="28" width="343" height="342"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="342" id="qpd-ga-5dx"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oBJ-gb-aPd">
+                                <rect key="frame" x="81" y="449" width="42" height="30"/>
+                                <state key="normal" title="Image"/>
+                                <connections>
+                                    <action selector="PageLoadImage:" destination="idx-MO-gKf" eventType="touchUpInside" id="RQd-a9-k9Y"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="pageLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kSm-qm-XNH">
+                                <rect key="frame" x="166" y="626" width="100" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="axl-Th-H2N"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yJ9-se-3SB">
+                                <rect key="frame" x="194" y="449" width="118" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="118" id="CYr-KR-PhD"/>
+                                </constraints>
+                                <state key="normal" title="Record"/>
+                                <connections>
+                                    <action selector="PageRecordAudio:" destination="idx-MO-gKf" eventType="touchUpInside" id="yYv-WE-J5U"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Z31-7Y-jGg" firstAttribute="leading" secondItem="E49-qw-70d" secondAttribute="leadingMargin" id="2if-di-Udg"/>
+                            <constraint firstItem="Z31-7Y-jGg" firstAttribute="trailing" secondItem="E49-qw-70d" secondAttribute="trailingMargin" id="97z-pS-Qg9"/>
+                            <constraint firstItem="yJ9-se-3SB" firstAttribute="baseline" secondItem="oBJ-gb-aPd" secondAttribute="baseline" id="9OU-dQ-w9a"/>
+                            <constraint firstItem="oBJ-gb-aPd" firstAttribute="leading" secondItem="E49-qw-70d" secondAttribute="leadingMargin" constant="65" id="CGl-Zb-byD"/>
+                            <constraint firstItem="Z31-7Y-jGg" firstAttribute="top" secondItem="uf3-r0-Edr" secondAttribute="bottom" constant="8" symbolic="YES" id="LRW-LR-OgW"/>
+                            <constraint firstItem="kSm-qm-XNH" firstAttribute="leading" secondItem="E49-qw-70d" secondAttribute="leadingMargin" constant="150" id="eUU-ND-CuJ"/>
+                            <constraint firstItem="kSm-qm-XNH" firstAttribute="top" secondItem="Z31-7Y-jGg" secondAttribute="bottom" constant="256" id="lDg-hC-6hg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="yJ9-se-3SB" secondAttribute="trailing" constant="47" id="scZ-cf-jgW"/>
+                            <constraint firstItem="yJ9-se-3SB" firstAttribute="top" secondItem="Z31-7Y-jGg" secondAttribute="bottom" constant="79" id="tFN-jP-VMd"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="pageImageView" destination="Z31-7Y-jGg" id="ORD-A7-TcH"/>
+                        <outlet property="pageLabel" destination="kSm-qm-XNH" id="Imy-X4-cZb"/>
+                        <outlet property="recordButton" destination="yJ9-se-3SB" id="FV4-wH-Gi2"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dZT-bu-Fnr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-204" y="88.605697151424295"/>
         </scene>
     </scenes>
 </document>

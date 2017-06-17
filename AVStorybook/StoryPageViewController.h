@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  StoryPartViewController.h
 //  AVStorybook
 //
 //  Created by Kevin Cleathero on 2017-06-16.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface StoryPageViewController : UIPageViewController <UIPageViewControllerDataSource>
 
 @end
-
