@@ -104,24 +104,6 @@
     // Pass the selected object to the new view controller.
 }
 */
-
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
-    //[picker dismissViewControllerAnimated(true, completion: nil)];
-    [picker dismissViewControllerAnimated:true completion:nil];
-}
-
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
-    
-    UIImage *selectedImage = [info objectForKey:UIImagePickerControllerOriginalImage];
-    self.pageImageView.image = selectedImage;
-}
-
-//-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
-//    
-//    UIImage *selectedImage = [info objectForKey:UIImagePickerControllerOriginalImage];
-//    self.pageImageView.image = selectedImage;
-//}
-
 - (IBAction)PageLoadImage:(id)sender {
     
     UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init]; // 1
@@ -137,6 +119,28 @@
     [self presentViewController:imagePicker animated:YES completion:nil]; // 3
     
 }
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+    //[picker dismissViewControllerAnimated(true, completion: nil)];
+    [picker dismissViewControllerAnimated:true completion:nil];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+//    UIImage *chosenImage = info[UIImagePickerControllerOriginalImage];
+//    self.pageImageView.image = chosenImage;
+    UIImage *selectedImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+    self.pageImageView.image = selectedImage;
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+}
+
+//-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
+//    
+//    UIImage *selectedImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+//    self.pageImageView.image = selectedImage;
+//}
+
+
 - (IBAction)PageRecordAudio:(id)sender {
     
     NSLog(@"Record engaged");
